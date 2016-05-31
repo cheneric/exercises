@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+	compile 'org.functionaljava:functionaljava:4.5'
+	testCompile 'junit:junit:4.12'
+}
+
+repositories {
+	mavenLocal()
+	jcenter()
+}
