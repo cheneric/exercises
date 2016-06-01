@@ -125,7 +125,7 @@ public class Spiral {
 
 	public static void main(String... args) {
 		drawBuffer(10);
-		System.out.print("\n");
+		System.out.println();
 		drawDirect(10);
 	}
 }
