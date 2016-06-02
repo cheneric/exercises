@@ -39,4 +39,8 @@ public class Fibonacci {
 		}
 		return fibs.get(n);
 	}
+
+	public static void main(String... args) {
+		System.out.println(fibConstSpace(5));
+	}
 }
