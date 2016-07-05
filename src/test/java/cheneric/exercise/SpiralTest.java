@@ -1,7 +1,7 @@
-package chen.eric.exercise;
+package cheneric.exercise;
 
 import static org.junit.Assert.*;
-import static chen.eric.exercise.Spiral.*;
+import static cheneric.exercise.Spiral.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

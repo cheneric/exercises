@@ -1,4 +1,4 @@
-package chen.eric.exercise;
+package cheneric.exercise;
 
 import java.util.ArrayList;
 import java.util.List;

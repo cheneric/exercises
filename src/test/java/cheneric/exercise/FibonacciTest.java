@@ -1,4 +1,4 @@
-package chen.eric.exercise;
+package cheneric.exercise;
 
 import fj.F;
 

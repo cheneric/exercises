@@ -1,4 +1,4 @@
-package chen.eric.exercise;
+package cheneric.exercise;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static chen.eric.exercise.CoinChange.minCoins;
+import static cheneric.exercise.CoinChange.minCoins;
 
 public class CoinChangeTest {
 	@Test

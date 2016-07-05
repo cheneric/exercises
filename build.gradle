@@ -1,10 +1,35 @@
+apply plugin: 'application'
 apply plugin: 'java'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
+applicationDistribution.from('data') {
+	into 'data'
+}
+
+run {
+	final String ARGS_KEY = 'args'
+	final String MAIN_CLASS_KEY = 'mainClass'
+	final boolean hasMainClass = project.hasProperty(MAIN_CLASS_KEY)
+	if (hasMainClass) {
+		project.mainClassName = project.property(MAIN_CLASS_KEY)
+		if (project.hasProperty(ARGS_KEY)) {
+			args project.property(ARGS_KEY)
+		}
+	}
+	doFirst {
+		if (!hasMainClass) {
+			throw new InvalidUserDataException("Please specify fully qualified class name to run: -P${MAIN_CLASS_KEY}=<package.Class>");
+		}
+	}
+}
+
 dependencies {
+	compile 'org.apache.commons:commons-lang3:3.4'
 	compile 'org.functionaljava:functionaljava:4.5'
 	testCompile 'junit:junit:4.12'
+	testCompile 'org.powermock:powermock-api-mockito:1.6.2'
+	testCompile 'org.powermock:powermock-module-junit4:1.6.2'
 }
 
 repositories {
