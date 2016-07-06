@@ -8,6 +8,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * To play, run:
+ * <code>
+ *   ./gradlew run -q -PmainClass=cheneric.exercise.Connect4
+ * </code>
+ */
 public class Connect4 {
 
 	enum Token {
@@ -62,6 +68,10 @@ public class Connect4 {
 			}
 			catch (IOException|NumberFormatException|IndexOutOfBoundsException exception) {}
 		}
+	}
+
+	public static void main(String... args) {
+		new Connect4().start();
 	}
 
 	static class Board {
@@ -241,6 +251,7 @@ public class Connect4 {
 		@Override
 		public String toString() {
 			final StringBuilder boardStringBuilder = new StringBuilder();
+			boardStringBuilder.append(NEWLINE);
 			for (int count = 0; count < NUM_COLUMNS; count++) {
 				boardStringBuilder.append(count)
 					.append(HSPACE);
@@ -259,9 +270,5 @@ public class Connect4 {
 		interface WinCondition {
 			boolean isWin(int tokenColumnIndex, int tokenRowIndex);
 		}
-	}
-
-	public static void main(String... args) {
-		new Connect4().start();
 	}
 }

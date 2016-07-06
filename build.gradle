@@ -8,6 +8,8 @@ applicationDistribution.from('data') {
 }
 
 run {
+	standardInput = System.in
+
 	final String ARGS_KEY = 'args'
 	final String MAIN_CLASS_KEY = 'mainClass'
 	final boolean hasMainClass = project.hasProperty(MAIN_CLASS_KEY)
