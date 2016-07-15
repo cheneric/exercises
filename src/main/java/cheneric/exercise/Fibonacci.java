@@ -3,6 +3,14 @@ package cheneric.exercise;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <p>Generates Fibonacci numbers.</p>
+ *
+ * <p>To run:</p>
+ * <code>
+ *   ./gradlew run -q -PmainClass=cheneric.exercise.Fibonacci
+ * </code>
+ */
 public class Fibonacci {
 	public static int fibConstSpace(int n) {
 		if (n < 0) {

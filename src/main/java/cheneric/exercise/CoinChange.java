@@ -3,6 +3,14 @@ package cheneric.exercise;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <p>Calculates change using coins.</p>
+ *
+ * <p>To run:</p>
+ * <code>
+ *   ./gradlew run -q -PmainClass=cheneric.exercise.CoinChange
+ * </code>
+ */
 public class CoinChange {
 	public static List<Integer> minCoins(int amount, int... coinValues) {
 		if (amount >= 0) {

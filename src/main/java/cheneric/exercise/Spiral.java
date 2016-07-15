@@ -2,6 +2,14 @@ package cheneric.exercise;
 
 import java.io.PrintStream;
 
+/**
+ * <p>Draws spirals.</p>
+ *
+ * <p>To run:</p>
+ * <code>
+ *   ./gradlew run -q -PmainClass=cheneric.exercise.Spiral
+ * </code>
+ */
 public class Spiral {
 	static final char EMPTY = '.';
 	static final char FILLED = '*';
