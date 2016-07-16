@@ -8,7 +8,7 @@ import java.util.List;
  *
  * <p>To run:</p>
  * <code>
- *   ./gradlew run -q -PmainClass=cheneric.exercise.Fibonacci
+ *   ./gradlew run -q -PmainClass=cheneric.exercise.Fibonacci -Pargs=&lt;n for n-th Fibonacci number>
  * </code>
  */
 public class Fibonacci {
@@ -49,6 +49,18 @@ public class Fibonacci {
 	}
 
 	public static void main(String... args) {
-		System.out.println(fibConstSpace(5));
+		int n = 5;
+		if (args.length > 0) {
+			try {
+				n = Integer.parseInt(args[0]);
+			}
+			catch (NumberFormatException exception) {
+				System.err.println("Invalid integer: " + args[0]);
+				System.exit(1);
+			}
+		}
+		System.out.println("Input n: " + n);
+		System.out.println("Constant space: " + fibConstSpace(n));
+		System.out.println("n space: " + fibNSpace(n));
 	}
 }

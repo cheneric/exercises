@@ -7,7 +7,7 @@ import java.io.PrintStream;
  *
  * <p>To run:</p>
  * <code>
- *   ./gradlew run -q -PmainClass=cheneric.exercise.Spiral
+ *   ./gradlew run -q -PmainClass=cheneric.exercise.Spiral -Pargs=&lt;n to draw on a n x n grid>
  * </code>
  */
 public class Spiral {
@@ -132,8 +132,19 @@ public class Spiral {
 	}
 
 	public static void main(String... args) {
-		drawBuffer(10);
-		System.out.println();
-		drawDirect(10);
+		int n = 10;
+		if (args.length > 0) {
+			try {
+				n = Integer.parseInt(args[0]);
+			}
+			catch (NumberFormatException exception) {
+				System.err.println("Invalid integer: " + args[0]);
+				System.exit(1);
+			}
+		}
+		System.out.println("Draw with buffer:\n");
+		drawBuffer(n);
+		System.out.println("\nDraw direct:\n");
+		drawDirect(n);
 	}
 }
