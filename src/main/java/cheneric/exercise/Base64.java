@@ -77,12 +77,12 @@ public class Base64 {
 				final byte byte1 = inBytes[inIndex];
 				final boolean haveByte2 = inIndex + 1 < numberOfBytes;
 				final byte byte2 = haveByte2 ? inBytes[inIndex + 1] : 0x00;
-				outChars[outIndex++] = ENCODE[byte1 >> 2];
-				outChars[outIndex++] = ENCODE[((byte1 & 0x03) << 4) | (byte2 >> 4)];
+				outChars[outIndex++] = ENCODE[(byte1 & 0xFF) >> 2];
+				outChars[outIndex++] = ENCODE[((byte1 & 0x03) << 4) | ((byte2 & 0xFF) >> 4)];
 				if (haveByte2) {
 					final boolean haveByte3 = inIndex + 2 < numberOfBytes;
 					final byte byte3 = haveByte3 ? inBytes[inIndex + 2] : 0x00;
-					outChars[outIndex++] = ENCODE[((byte2 & 0x0F) << 2) | (byte3 >> 6)];
+					outChars[outIndex++] = ENCODE[((byte2 & 0x0F) << 2) | ((byte3 & 0xFF) >> 6)];
 					outChars[outIndex++] = haveByte3 ? ENCODE[byte3 & 0x3F] : NULL_CODE;
 				}
 				else {

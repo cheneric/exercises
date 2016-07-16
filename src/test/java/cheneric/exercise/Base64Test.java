@@ -16,6 +16,10 @@ public class Base64Test {
 		assertArrayEquals("ABc0 =".getBytes(), Base64.decode("QUJjMCA9"));
 		assertArrayEquals("ABc0 =/".getBytes(), Base64.decode("QUJjMCA9Lw=="));
 		assertArrayEquals("ABc0 =/+".getBytes(), Base64.decode("QUJjMCA9Lys="));
+		assertArrayEquals(new byte[] {(byte)0xA1}, Base64.decode("oQ=="));
+		assertArrayEquals(new byte[] {(byte)0xEE, (byte)0xA1}, Base64.decode("7qE="));
+		assertArrayEquals(new byte[] {(byte)0xFF, (byte)0xEE, (byte)0xA1}, Base64.decode("/+6h"));
+		assertArrayEquals(new byte[] {(byte)0xD0, (byte)0xFF, (byte)0xEE, (byte)0xA1}, Base64.decode("0P/uoQ=="));
 		try {
 			Base64.decode("=");
 			fail("Encoded string length not a multiple of 4");
@@ -80,5 +84,9 @@ public class Base64Test {
 		assertEquals("QUJjMCA9", Base64.encode("ABc0 =".getBytes()));
 		assertEquals("QUJjMCA9Lw==", Base64.encode("ABc0 =/".getBytes()));
 		assertEquals("QUJjMCA9Lys=", Base64.encode("ABc0 =/+".getBytes()));
+		assertEquals("oQ==", Base64.encode(new byte[] {(byte)0xA1}));
+		assertEquals("7qE=", Base64.encode(new byte[] {(byte)0xEE, (byte)0xA1}));
+		assertEquals("/+6h", Base64.encode(new byte[] {(byte)0xFF, (byte)0xEE, (byte)0xA1}));
+		assertEquals("0P/uoQ==", Base64.encode(new byte[] {(byte)0xD0, (byte)0xFF, (byte)0xEE, (byte)0xA1}));
 	}
 }
